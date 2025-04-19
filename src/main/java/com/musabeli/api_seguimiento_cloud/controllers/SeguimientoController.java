@@ -1,6 +1,7 @@
 package com.musabeli.api_seguimiento_cloud.controllers;
 
 import com.musabeli.api_seguimiento_cloud.dto.CreateSeguimientoDto;
+import com.musabeli.api_seguimiento_cloud.dto.UpdateSeguimientoDto;
 import com.musabeli.api_seguimiento_cloud.entities.Seguimiento;
 import com.musabeli.api_seguimiento_cloud.services.SeguimientoService;
 import jakarta.validation.Valid;
@@ -40,4 +41,11 @@ public class SeguimientoController {
         log.info("Seguimiento encontrado: id: {},", seguimiento.getId());
         return ResponseEntity.status(HttpStatus.OK).body(seguimiento);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Seguimiento> updateSeguimiento(@PathVariable Long id, @Valid @RequestBody UpdateSeguimientoDto segumientoDto){
+        Seguimiento seguimiento = this.seguimientoService.updateSeguimiento(id, segumientoDto);
+        return ResponseEntity.status(HttpStatus.OK).body(seguimiento);
+    }
+
 }
