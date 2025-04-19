@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface SeguimientoRepository extends JpaRepository<Seguimiento, Long> {
 
     Optional<Seguimiento> findByCodSeguimiento(String codSeguimiento);
+
 }

@@ -1,6 +1,8 @@
 package com.musabeli.api_seguimiento_cloud.controllers;
 
+import com.musabeli.api_seguimiento_cloud.dto.CodigoRequestDto;
 import com.musabeli.api_seguimiento_cloud.dto.CreateSeguimientoDto;
+import com.musabeli.api_seguimiento_cloud.dto.UbicacionActualResponseDto;
 import com.musabeli.api_seguimiento_cloud.dto.UpdateSeguimientoDto;
 import com.musabeli.api_seguimiento_cloud.entities.Seguimiento;
 import com.musabeli.api_seguimiento_cloud.services.SeguimientoService;
@@ -52,5 +54,12 @@ public class SeguimientoController {
     public ResponseEntity<Seguimiento> deleteSeguimiento(@PathVariable Long id){
         Seguimiento seguimiento = this.seguimientoService.deleteSeguimiento(id);
         return ResponseEntity.status(HttpStatus.OK).body(seguimiento);
+    }
+
+
+    @PostMapping("/getUbicacionActual")
+    public ResponseEntity<UbicacionActualResponseDto> getUbicacionActual(@Valid @RequestBody CodigoRequestDto codigoDto){
+        UbicacionActualResponseDto ubicacionActual = this.seguimientoService.getUbicacionActual(codigoDto);
+        return ResponseEntity.status(HttpStatus.OK).body(ubicacionActual);
     }
 }

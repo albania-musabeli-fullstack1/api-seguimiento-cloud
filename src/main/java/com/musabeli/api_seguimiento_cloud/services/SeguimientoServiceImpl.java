@@ -1,7 +1,9 @@
 package com.musabeli.api_seguimiento_cloud.services;
 
 
+import com.musabeli.api_seguimiento_cloud.dto.CodigoRequestDto;
 import com.musabeli.api_seguimiento_cloud.dto.CreateSeguimientoDto;
+import com.musabeli.api_seguimiento_cloud.dto.UbicacionActualResponseDto;
 import com.musabeli.api_seguimiento_cloud.dto.UpdateSeguimientoDto;
 import com.musabeli.api_seguimiento_cloud.entities.Seguimiento;
 import com.musabeli.api_seguimiento_cloud.exceptions.CodSeguimientoExistsException;
@@ -103,5 +105,20 @@ public class SeguimientoServiceImpl implements SeguimientoService {
 
         this.seguimientoRepository.deleteById(id);
         return deleteSeguimiento;
+    }
+
+    @Override
+    public UbicacionActualResponseDto getUbicacionActual(CodigoRequestDto codigoDto) {
+        // buscar envio por codigo
+        Optional<Seguimiento> seguimiento = this.seguimientoRepository.findByCodSeguimiento(codigoDto.getCodSeguimiento());
+
+        if (seguimiento.isPresent()){
+            return new UbicacionActualResponseDto(
+                    seguimiento.get().getCodSeguimiento(),
+                    seguimiento.get().getUbicacionActual()
+            );
+        }
+
+        throw new ResourceNotFoundException("No existe un seguimiento de envío con el código: " + codigoDto.getCodSeguimiento());
     }
 }
