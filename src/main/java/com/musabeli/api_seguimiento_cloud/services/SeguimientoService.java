@@ -13,4 +13,5 @@ public interface SeguimientoService {
     List<Seguimiento> getAllSeguimientos();
     Seguimiento getSeguimientoById(Long id);
     Seguimiento updateSeguimiento(Long id, UpdateSeguimientoDto updateSeguimientoDto);
+    Seguimiento deleteSeguimiento(Long id);
 }

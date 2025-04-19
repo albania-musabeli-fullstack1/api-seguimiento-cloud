@@ -96,4 +96,12 @@ public class SeguimientoServiceImpl implements SeguimientoService {
         // actualizar en bbdd
         return this.seguimientoRepository.save(updateSeguimiento);
     }
+
+    @Override
+    public Seguimiento deleteSeguimiento(Long id) {
+        Seguimiento deleteSeguimiento = this.findSeguimientoById(id);
+
+        this.seguimientoRepository.deleteById(id);
+        return deleteSeguimiento;
+    }
 }

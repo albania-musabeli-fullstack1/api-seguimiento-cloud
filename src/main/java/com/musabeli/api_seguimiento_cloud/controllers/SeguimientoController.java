@@ -48,4 +48,9 @@ public class SeguimientoController {
         return ResponseEntity.status(HttpStatus.OK).body(seguimiento);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Seguimiento> deleteSeguimiento(@PathVariable Long id){
+        Seguimiento seguimiento = this.seguimientoService.deleteSeguimiento(id);
+        return ResponseEntity.status(HttpStatus.OK).body(seguimiento);
+    }
 }
