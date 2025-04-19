@@ -10,4 +10,5 @@ public interface SeguimientoService {
 
     Seguimiento createSeguimiento(CreateSeguimientoDto seguimientoDto);
     List<Seguimiento> getAllSeguimientos();
+    Seguimiento getSeguimientoById(Long id);
 }

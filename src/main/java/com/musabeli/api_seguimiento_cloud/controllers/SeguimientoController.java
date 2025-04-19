@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 @RestController
@@ -31,5 +32,12 @@ public class SeguimientoController {
         List<Seguimiento> seguimientoList = this.seguimientoService.getAllSeguimientos();
         log.info("METODO GET: getSeguimientos OK");
         return ResponseEntity.status(HttpStatus.OK).body(seguimientoList);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Seguimiento> getSeguimientoById(@PathVariable Long id){
+        Seguimiento seguimiento = this.seguimientoService.getSeguimientoById(id);
+        log.info("Seguimiento encontrado: id: {},", seguimiento.getId());
+        return ResponseEntity.status(HttpStatus.OK).body(seguimiento);
     }
 }
