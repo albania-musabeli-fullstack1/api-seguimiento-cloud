@@ -40,5 +40,6 @@ public class CreateSeguimientoDto {
     private String estado;
 
     @NotBlank(message = "La ubicación actual no puede estar vacía")
+    @Size(min = 3, max = 40, message = "La ubicación actual debe tener entre 3 y 40 caracteres")
     private String ubicacionActual;
 }
