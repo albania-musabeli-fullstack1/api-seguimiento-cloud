@@ -9,6 +9,8 @@ import com.musabeli.api_seguimiento_cloud.repositories.SeguimientoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SeguimientoServiceImpl implements SeguimientoService {
 
@@ -28,5 +30,10 @@ public class SeguimientoServiceImpl implements SeguimientoService {
         Seguimiento seguimiento = SeguimientoMapper.fromCreateSeguimiento(seguimientoDto);
         // guardar en la bbdd
         return this.seguimientoRepository.save(seguimiento);
+    }
+
+    @Override
+    public List<Seguimiento> getAllSeguimientos() {
+        return this.seguimientoRepository.findAll();
     }
 }
