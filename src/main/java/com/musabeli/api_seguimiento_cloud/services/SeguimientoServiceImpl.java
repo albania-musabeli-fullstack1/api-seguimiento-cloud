@@ -77,22 +77,22 @@ public class SeguimientoServiceImpl implements SeguimientoService {
             updateSeguimiento.setRemitente(updateSeguimientoDto.getRemitente());
         }
         if (updateSeguimientoDto.getDestinatario() != null){
-            updateSeguimiento.setDestinatario(updateSeguimiento.getDestinatario());
+            updateSeguimiento.setDestinatario(updateSeguimientoDto.getDestinatario());
         }
         if (updateSeguimientoDto.getPaisOrigen() != null){
-            updateSeguimiento.setPaisOrigen(updateSeguimiento.getPaisOrigen());
+            updateSeguimiento.setPaisOrigen(updateSeguimientoDto.getPaisOrigen());
         }
         if (updateSeguimientoDto.getPaisDestino() != null){
-            updateSeguimiento.setPaisDestino(updateSeguimiento.getPaisDestino());
+            updateSeguimiento.setPaisDestino(updateSeguimientoDto.getPaisDestino());
         }
         if (updateSeguimientoDto.getFechaEnvio() != null){
-            updateSeguimiento.setFechaEnvio(updateSeguimiento.getFechaEnvio());
+            updateSeguimiento.setFechaEnvio(updateSeguimientoDto.getFechaEnvio());
         }
         if (updateSeguimientoDto.getEstado() != null){
-            updateSeguimiento.setEstado(updateSeguimiento.getEstado());
+            updateSeguimiento.setEstado(updateSeguimientoDto.getEstado());
         }
         if (updateSeguimientoDto.getUbicacionActual() != null){
-            updateSeguimiento.setUbicacionActual(updateSeguimiento.getUbicacionActual());
+            updateSeguimiento.setUbicacionActual(updateSeguimientoDto.getUbicacionActual());
         }
 
         // actualizar en bbdd
