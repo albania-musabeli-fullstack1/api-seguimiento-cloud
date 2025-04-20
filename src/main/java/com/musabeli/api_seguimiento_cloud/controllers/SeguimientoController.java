@@ -27,6 +27,7 @@ public class SeguimientoController {
     @PostMapping
     public ResponseEntity<Seguimiento> createSeguimiento(@Valid @RequestBody CreateSeguimientoDto dto){
         Seguimiento nuevoSeguimiento = this.seguimientoService.createSeguimiento(dto);
+        log.info("MÉTODO POST: crear un seguimiento OK");
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoSeguimiento);
     }
 
@@ -47,12 +48,14 @@ public class SeguimientoController {
     @PutMapping("/{id}")
     public ResponseEntity<Seguimiento> updateSeguimiento(@PathVariable Long id, @Valid @RequestBody UpdateSeguimientoDto segumientoDto){
         Seguimiento seguimiento = this.seguimientoService.updateSeguimiento(id, segumientoDto);
+        log.info("Seguimiento con id: {} actualizado", seguimiento.getId());
         return ResponseEntity.status(HttpStatus.OK).body(seguimiento);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Seguimiento> deleteSeguimiento(@PathVariable Long id){
         Seguimiento seguimiento = this.seguimientoService.deleteSeguimiento(id);
+        log.info("Seguimiento con id: {} eliminado", seguimiento.getId());
         return ResponseEntity.status(HttpStatus.OK).body(seguimiento);
     }
 
@@ -60,6 +63,7 @@ public class SeguimientoController {
     @PostMapping("/getUbicacionActual")
     public ResponseEntity<UbicacionActualResponseDto> getUbicacionActual(@Valid @RequestBody CodigoRequestDto codigoDto){
         UbicacionActualResponseDto ubicacionActual = this.seguimientoService.getUbicacionActual(codigoDto);
+        log.info("Consultar ubicación actual de seguimiento OK");
         return ResponseEntity.status(HttpStatus.OK).body(ubicacionActual);
     }
 }
