@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: api_usuarios_c
+    container_name: api_seguimientos_c
     ports:
       - "8081:8081"
     env_file:
