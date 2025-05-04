@@ -1,0 +1,11 @@
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api_usuarios_c
+    ports:
+      - "8081:8081"
+    env_file:
+      - .env
