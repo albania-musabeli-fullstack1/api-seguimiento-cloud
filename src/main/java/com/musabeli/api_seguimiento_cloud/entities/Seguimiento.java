@@ -1,20 +1,19 @@
 package com.musabeli.api_seguimiento_cloud.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Builder
 @Table(name = "seguimiento")
-public class Seguimiento {
+public class Seguimiento extends RepresentationModel<Seguimiento> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
